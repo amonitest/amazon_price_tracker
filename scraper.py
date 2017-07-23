@@ -62,12 +62,12 @@ def AmzonParser(url):
             if page.status_code!=200:
                 raise ValueError('captha')
             data = {
-                    'NAME':NAME,
-                    'SALE_PRICE':SALE_PRICE,
-                    'CATEGORY':CATEGORY,
-                    'ORIGINAL_PRICE':ORIGINAL_PRICE,
-                    'AVAILABILITY':AVAILABILITY,
-                    'URL':url,
+                    "NAME":NAME,
+                    "SALE_PRICE":SALE_PRICE,
+                    "CATEGORY":CATEGORY,
+                    "ORIGINAL_PRICE":ORIGINAL_PRICE,
+                    "AVAILABILITY":AVAILABILITY,
+                    "URL":url,
                     }
  
             return data
