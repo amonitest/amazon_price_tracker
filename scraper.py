@@ -29,6 +29,7 @@ import csv,os,json
 import requests
 from exceptions import ValueError
 from time import sleep
+import time
  
 def AmzonParser(url):
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
@@ -64,9 +65,10 @@ def AmzonParser(url):
             data = {
                     "NAME":NAME,
                     "SALE_PRICE":SALE_PRICE,
-                    "CATEGORY":CATEGORY,
-                    "ORIGINAL_PRICE":ORIGINAL_PRICE,
-                    "AVAILABILITY":AVAILABILITY,
+                    "ORIGINAL_PRICE": ORIGINAL_PRICE,
+                    # "CATEGORY":CATEGORY,
+                    "TIME" : time.strftime("%Y-%m-%d %H:%M"),
+                    # "AVAILABILITY":AVAILABILITY,
                     "URL":url,
                     }
  
