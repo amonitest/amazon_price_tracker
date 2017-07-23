@@ -81,7 +81,8 @@ def ReadAsin():
     for i in AsinList:
         url = "http://www.amazon.in/dp/"+i
         print("Processing: "+url)
-        price_data = AmzonParser(url) 
+        price_data = AmzonParser(url)
+        print price_data
         extracted_data.append(price_data)
         scraperwiki.sqlite.save(unique_keys=[i], data=price_data)
         sleep(5)
