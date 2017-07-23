@@ -86,11 +86,11 @@ def ReadAsin():
         price_data = AmzonParser(url)
         print price_data
         extracted_data.append(price_data)
-        scraperwiki.sqlite.save(unique_keys=["URL"], data=price_data)
+        scraperwiki.sqlite.save(unique_keys=[], data=price_data)
         sleep(5)
     f=open('data.json','w')
-    json.dump(extracted_data,f,indent=4)
+    # json.dump(extracted_data,f,indent=4)
     
-    scraperwiki.sql.select("* from data")
+    print scraperwiki.sql.select("* from data")
 if __name__ == "__main__":
     ReadAsin()
