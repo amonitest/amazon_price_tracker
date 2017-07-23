@@ -67,7 +67,7 @@ def AmzonParser(url):
                     "SALE_PRICE":SALE_PRICE,
                     "ORIGINAL_PRICE": ORIGINAL_PRICE,
                     # "CATEGORY":CATEGORY,
-                    "TIME" : time.strftime("%Y-%m-%d %H:%M"),
+                    "TIME" : time.strftime("%Y-%m-%d %H:%M:%S"),
                     # "AVAILABILITY":AVAILABILITY,
                     "URL":url,
                     }
@@ -86,7 +86,7 @@ def ReadAsin():
         price_data = AmzonParser(url)
         print price_data
         extracted_data.append(price_data)
-        scraperwiki.sqlite.save(unique_keys=[], data=price_data)
+        scraperwiki.sqlite.save(unique_keys=["TIME"], data=price_data)
         sleep(5)
     f=open('data.json','w')
     # json.dump(extracted_data,f,indent=4)
