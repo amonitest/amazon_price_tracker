@@ -63,6 +63,7 @@ def AmzonParser(url):
             if page.status_code!=200:
                 raise ValueError('captha')
             data = {
+                    "id":str(time.time()),
                     "NAME":NAME,
                     "SALE_PRICE":SALE_PRICE,
                     "ORIGINAL_PRICE": ORIGINAL_PRICE,
@@ -86,7 +87,7 @@ def ReadAsin():
         price_data = AmzonParser(url)
         print price_data
         extracted_data.append(price_data)
-        scraperwiki.sqlite.save(unique_keys=["TIME"], data=price_data)
+        scraperwiki.sqlite.save(unique_keys=["id"], data=price_data)
         sleep(5)
     f=open('data.json','w')
     # json.dump(extracted_data,f,indent=4)
