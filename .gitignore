@@ -1,2 +1,7 @@
 # Ignore output of scraper
 data.sqlite
+.idea/amazon_price_tracker.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
