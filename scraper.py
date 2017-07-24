@@ -37,8 +37,7 @@ def AmzonParser(url):
         sleep(3)
         try:
             doc = html.fromstring(page.content)
-            XPATH_NAME = '//h1[@id="title"]//text()'
-            # XPATH_SALE_PRICE = '//span[contains(@id,"ourprice") or contains(@id,"saleprice")]/text()'
+            XPATH_NAME = '//h1[@id="title"]//text()'            # XPATH_SALE_PRICE = '//span[contains(@id,"ourprice") or contains(@id,"saleprice")]/text()'
             XPATH_SALE_PRICE = '//span[contains(@id,"ourprice") or contains(@id,"saleprice") or contains(@class,"a-size-medium a-color-price inlineBlock-display offer-price a-text-normal price3P")]/text()'
             XPATH_ORIGINAL_PRICE = '//td[contains(text(),"List Price") or contains(text(),"M.R.P") or contains(text(),"Price")]/following-sibling::td/text()'
             XPATH_CATEGORY = '//a[@class="a-link-normal a-color-tertiary"]//text()'
@@ -69,7 +68,7 @@ def AmzonParser(url):
                     "CATEGORY":CATEGORY,
                     "TIME" : time.strftime("%Y-%m-%d %H:%M:%S"),
                     # "AVAILABILITY":AVAILABILITY,
-                    "URL":url,
+                    "URL":url
                     }
  
             return data
