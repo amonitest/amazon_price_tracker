@@ -21,8 +21,7 @@
 # You don't have to do things with the ScraperWiki and lxml libraries.
 # You can use whatever libraries you want: https://morph.io/documentation/python
 # All that matters is that your final data is written to an SQLite database
-# called "data.sqlite" in the current working directory which has at least a table
-# called "data".
+# called "data.sqlite" in the current working directory which has at least a table# called "data".
 import scraperwiki
 from lxml import html  
 import csv,os,json
@@ -67,7 +66,7 @@ def AmzonParser(url):
                     "NAME":NAME,
                     "SALE_PRICE":SALE_PRICE,
                     "ORIGINAL_PRICE": ORIGINAL_PRICE,
-                    # "CATEGORY":CATEGORY,
+                    "CATEGORY":CATEGORY,
                     "TIME" : time.strftime("%Y-%m-%d %H:%M:%S"),
                     # "AVAILABILITY":AVAILABILITY,
                     "URL":url,
@@ -89,7 +88,7 @@ def ReadAsin():
         extracted_data.append(price_data)
         scraperwiki.sqlite.save(unique_keys=["id"], data=price_data)
         sleep(5)
-    f=open('data.json','w')
+    # f=open('data.json','w')
     # json.dump(extracted_data,f,indent=4)
     
     print scraperwiki.sql.select("NAME,SALE_PRICE,TIME from data group by NAME order by TIME desc")
