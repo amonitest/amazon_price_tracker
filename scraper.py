@@ -85,7 +85,7 @@ def ReadAsin():
         price_data = AmzonParser(url)
         print price_data
         extracted_data.append(price_data)
-        scraperwiki.sqlite.save(unique_keys=["id"], data=price_data)
+        scraperwiki.sqlite.save(unique_keys=["id"], data=price_data,table_name='data')
         sleep(5)
     # f=open('data.json','w')
     # json.dump(extracted_data,f,indent=4)
