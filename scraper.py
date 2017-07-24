@@ -79,7 +79,7 @@ def AmzonParser(url):
  
 def ReadAsin():
     # AsinList = csv.DictReader(open(os.path.join(os.path.dirname(__file__),"Asinfeed.csv")))
-    AsinList = ['B008V6T1IW','0143416316','0099908409']
+    AsinList = ['0141033576','1784703931','0552778907']
     extracted_data = []
     for i in AsinList:
         url = "http://www.amazon.in/dp/"+i
@@ -92,6 +92,6 @@ def ReadAsin():
     f=open('data.json','w')
     # json.dump(extracted_data,f,indent=4)
     
-    print scraperwiki.sql.select("* from data")
+    print scraperwiki.sql.select("NAME,SALE_PRICE,TIME from data group by NAME order by TIME desc")
 if __name__ == "__main__":
     ReadAsin()
